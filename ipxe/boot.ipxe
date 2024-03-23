@@ -1,6 +1,9 @@
 #!ipxe
 
 :start
+echo Welcome to basic iPXE
+echo >sleep 5 seconds...
+sleep 5
 dhcp
 chain tftp://${next-server}/boot.ipxe || goto shell
 
@@ -9,7 +12,4 @@ echo Type 'exit' to get the back to the menu
 shell
 
 set menu-timeout 0 set submenu-timeout 0
-echo Welcome to basic iPXE
-echo >sleep 5 seconds...
-sleep 5
 goto start
