@@ -2,8 +2,8 @@
 
 :start
 echo Welcome to basic iPXE
-echo >sleep 5 seconds...
-sleep 5
+echo >sleep 3 seconds...
+sleep 3
 dhcp
 chain tftp://${next-server}/boot.ipxe || goto shell
 

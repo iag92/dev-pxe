@@ -7,13 +7,12 @@ mkdir -p ./build && cd ./build
 [ -d ./ipxe ] && rm -r ./ipxe
 git clone git://git.ipxe.org/ipxe.git
 cd ipxe/src/
+mkdir -p ${src_dir}/dist
 cp ${src_dir}/boot.ipxe ./
 sed -i '/CONSOLE_FRAMEBUFFER/s/\/\///g' ./config/console.h
 sed -i '/DOWNLOAD_PROTO_NFS/s/undef/define/g' ./config/general.h
 sed -i '/CONSOLE_CMD/s/\/\///g' ./config/general.h
 sed -i '/PING_CMD/s/\/\///g' ./config/general.h
 sed -i '/VLAN_CMD/s/\/\///g' ./config/general.h
-make bin-x86_64-efi/ipxe.efi EMBED=boot.ipxe
-make bin/undionly.kpxe EMBED=boot.ipxe
-cp bin/undionly.kpxe ${src_dir}/build/ipxe.bios
-cp bin-x86_64-efi/ipxe.efi ${src_dir}/build/ipxe.efi
+make bin/ipxe.pxe bin/undionly.kpxe bin/undionly.kkpxe bin/undionly.kkkpxe bin-x86_64-efi/ipxe.efi EMBED=boot.ipxe
+cp -v bin/{ipxe.pxe,undionly.kpxe,undionly.kkpxe,undionly.kkkpxe} bin-x86_64-efi/ipxe.efi ${src_dir}/dist
