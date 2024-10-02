@@ -14,5 +14,5 @@ sed -i '/DOWNLOAD_PROTO_NFS/s/undef/define/g' ./config/general.h
 sed -i '/CONSOLE_CMD/s/\/\///g' ./config/general.h
 sed -i '/PING_CMD/s/\/\///g' ./config/general.h
 sed -i '/VLAN_CMD/s/\/\///g' ./config/general.h
-make bin/ipxe.pxe bin/undionly.kpxe bin/undionly.kkpxe bin/undionly.kkkpxe bin-x86_64-efi/ipxe.efi EMBED=boot.ipxe
-cp -v bin/{ipxe.pxe,undionly.kpxe,undionly.kkpxe,undionly.kkkpxe} bin-x86_64-efi/ipxe.efi ${src_dir}/dist
+make bin/ipxe.pxe bin/ipxe.iso bin/undionly.kpxe bin/undionly.kkpxe bin/undionly.kkkpxe bin-x86_64-efi/ipxe.efi EMBED=boot.ipxe
+cp -v bin/{ipxe.pxe,ipxe.iso,undionly.kpxe,undionly.kkpxe,undionly.kkkpxe} bin-x86_64-efi/ipxe.efi ${src_dir}/dist
