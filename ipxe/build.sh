@@ -9,6 +9,7 @@ git clone git://git.ipxe.org/ipxe.git
 cd ipxe/src/
 mkdir -p ${src_dir}/dist
 cp ${src_dir}/boot.ipxe ./
+cp ${src_dir}/iso.ipxe ./
 sed -i '/CONSOLE_FRAMEBUFFER/s/\/\///g' ./config/console.h
 sed -i '/DOWNLOAD_PROTO_NFS/s/undef/define/g' ./config/general.h
 sed -i '/CONSOLE_CMD/s/\/\///g' ./config/general.h
